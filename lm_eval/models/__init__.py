@@ -1,3 +1,4 @@
+from . import fastertransformer
 from . import gpt2
 from . import gpt3
 from . import anthropic_llms
@@ -6,6 +7,7 @@ from . import textsynth
 from . import dummy
 
 MODEL_REGISTRY = {
+    "ft": fastertransformer.FTLM,
     "hf": gpt2.HFLM,
     "hf-causal": gpt2.HFLM,
     "hf-causal-experimental": huggingface.AutoCausalLM,
