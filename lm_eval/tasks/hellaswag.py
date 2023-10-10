@@ -47,7 +47,10 @@ class HellaSwag(MultipleChoiceTask):
         return self._training_docs
 
     def validation_docs(self):
-        return map(self._process_doc, self.dataset["validation"])
+        return map(
+                self._process_doc,
+                self.dataset["validation"] #.select(range(10))
+            )
 
     def _process_doc(self, doc):
         ctx = doc["ctx_a"] + " " + doc["ctx_b"].capitalize()

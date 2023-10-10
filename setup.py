@@ -21,7 +21,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.9",
+    python_requires=">=3.8",
     install_requires=[
         "datasets>=2.0.0",
         "einops",
@@ -37,7 +37,7 @@ setuptools.setup(
         "sacrebleu==1.5.0",
         "scikit-learn>=0.24.1",
         "sqlitedict",
-        "torch>=1.7",
+        "torch==1.13.0a0+d0d6b1f",
         "tqdm-multiprocess",
         "transformers>=4.1",
         "zstandard",
