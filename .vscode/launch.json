@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "HF125m base",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--model", "hf-causal",
+                "--model_args", "pretrained=facebook/opt-125m,batch_size=8",
+                "--tasks", "hellaswag",
+                "--device", "cuda:0",
+                "--no_cache",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "HF125m para",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--model", "paraopt",
+                "--model_args", "pretrained=facebook/opt-125m,batch_size=8",
+                "--tasks", "hellaswag",
+                "--device", "cuda:0",
+                "--no_cache",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Pytest",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-k",
+                "test_pipeline"
+            ],
+            "justMyCode": true
+        }
+    ]
+}
