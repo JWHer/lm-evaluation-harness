@@ -1,5 +1,22 @@
 # Language Model Evaluation Harness
 
+Forked from
+| Repository(branch)            | Commit Hash                                |
+|-------------------------------|--------------------------------------------|
+| lm-evaluation-harness(master) | `e81d3cce155e93ba2445068767c738891ad97024` |
+| FasterTransformer(v5.3)       | `d21dc02bc5f70bc7dc0d18ba5801ae263565e68e` |
+| metaseq(main)                 | `f7ffa5fd61cf90f498a36d365c13dd7f1a912ff7` |
+
+
+Directory hierarchy
+```
+.
+├── FasterTransformer
+├── checkpoints
+├── lm-evaluation-harness
+└── metaseq
+```
+
 ## We're Refactoring LM-Eval!
 (as of 6/15/23)
 We have a revamp of the Evaluation Harness library internals staged on the [big-refactor](https://github.com/EleutherAI/lm-evaluation-harness/tree/big-refactor) branch! It is far along in progress, but before we start to move the `master` branch of the repository over to this new design with a new version release, we'd like to ensure that it's been tested by outside users and there are no glaring bugs.

@@ -1,11 +1,15 @@
+from . import fastertransformer
 from . import gpt2
 from . import gpt3
 from . import anthropic_llms
 from . import huggingface
 from . import textsynth
 from . import dummy
+from pipeline.models.paraopt import paraopt
 
 MODEL_REGISTRY = {
+    "paraopt": paraopt.HFLM,
+    "ft": fastertransformer.FTLM,
     "hf": gpt2.HFLM,
     "hf-causal": gpt2.HFLM,
     "hf-causal-experimental": huggingface.AutoCausalLM,

@@ -2,8 +2,8 @@ import math
 import torch
 import torch.nn.functional as F
 import transformers
-import peft
-from peft import __version__ as PEFT_VERSION
+# import peft
+# from peft import __version__ as PEFT_VERSION
 from pathlib import Path
 from typing import List, Mapping, NewType, Optional, Tuple, Union
 from tqdm import tqdm
@@ -16,6 +16,8 @@ from lm_eval.base import BaseLM
 TokenSequence = Union[List[int], torch.LongTensor, torch.Tensor, BatchEncoding]
 
 _DeviceMapping = NewType("DeviceMapping", Mapping[str, Union[int, str, torch.device]])
+
+PEFT_VERSION = "0.2.0"
 
 
 def _get_accelerate_args(
@@ -63,7 +65,7 @@ class HuggingFaceAutoLM(BaseLM):
     AUTO_CONFIG_CLASS: transformers.AutoConfig = transformers.AutoConfig
     AUTO_TOKENIZER_CLASS: transformers.AutoTokenizer = transformers.AutoTokenizer
     AUTO_MODEL_CLASS: transformers.AutoModel = None
-    AUTO_PEFT_CLASS: peft.PeftModel = None
+    # AUTO_PEFT_CLASS: peft.PeftModel = None
 
     # Default max sequence length setting for when no `max_length` is provided
     # or no max length config setting is found in the model or tokenizer.
@@ -527,7 +529,7 @@ class AutoCausalLM(HuggingFaceAutoLM):
     """
 
     AUTO_MODEL_CLASS = transformers.AutoModelForCausalLM
-    AUTO_PEFT_CLASS = peft.PeftModel
+    # AUTO_PEFT_CLASS = peft.PeftModel
 
     def _create_auto_tokenizer(
         self,
@@ -594,7 +596,7 @@ class AutoSeq2SeqLM(HuggingFaceAutoLM):
     """
 
     AUTO_MODEL_CLASS = transformers.AutoModelForSeq2SeqLM
-    AUTO_PEFT_CLASS = peft.PeftModel
+    # AUTO_PEFT_CLASS = peft.PeftModel
 
     def loglikelihood(
         self, requests: List[Tuple[str, str]]
